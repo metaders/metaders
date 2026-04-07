@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MetaDers Yayınları | LGS Prova</title>
+    <style>
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        body { 
+            background-color: #f0f3f5; 
+            background-image: radial-gradient(#d3dee6 0.8px, #f0f3f5 0.8px);
+            background-size: 15px 15px;
+            font-family: 'Segoe UI', sans-serif; 
+            display: flex; justify-content: center; align-items: center; 
+            min-height: 100vh; margin: 0; padding: 15px; 
+        }
+        
+        .card { 
+            background: #ffffff; width: 100%; max-width: 380px; 
+            border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+            text-align: center; position: relative; overflow: hidden;
+        }
+
+        /* Üst Lacivert Bölüm */
+        .top-banner {
+            background-color: #0a3d62;
+            padding: 40px 20px 60px 20px;
+            position: relative;
+        }
+
+        /* Beyaz Yuvarlak Logo Alanı */
+        .logo-wrapper {
+            width: 130px; height: 130px;
+            background: #ffffff;
+            border-radius: 50%;
+            padding: 15px;
+            position: absolute;
+            left: 50%;
+            bottom: -65px;
+            transform: translateX(-50%);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            display: flex; justify-content: center; align-items: center;
+        }
+
+        .logo-wrapper img {
+            max-width: 100%; height: auto; border-radius: 50%;
+        }
+
+        .content {
+            padding: 80px 25px 35px 25px;
+        }
+
+        .creator {
+            font-size: 13px; color: #888; font-weight: 700; 
+            text-transform: uppercase; letter-spacing: 2px;
+            display: block; margin-bottom: 20px;
+        }
+        
+        h1 { font-size: 20px; color: #0a3d62; margin: 0 0 5px 0; font-weight: 800; }
+        .subtitle { font-size: 13px; color: #b33939; font-weight: 700; margin-bottom: 20px; display: block; }
+        
+        .vurgu-p { color: #444; font-size: 14px; line-height: 1.6; margin-bottom: 25px; }
+
+        /* Butonlar */
+        .btn { 
+            display: block; width: 100%; padding: 16px; margin-bottom: 12px; 
+            border-radius: 15px; text-decoration: none; font-weight: bold; 
+            font-size: 15px; transition: all 0.3s ease; 
+        }
+        
+        .btn-exam { background-color: #0a3d62; color: #ffffff; border: 2px solid #0a3d62; }
+        .btn-exam:hover { background-color: #b33939; border-color: #b33939; transform: scale(1.02); }
+        
+        .btn-outline { border: 2px solid #0a3d62; color: #0a3d62; background: transparent; }
+        .btn-outline:hover { background-color: #0a3d62; color: #ffffff; transform: scale(1.02); }
+        
+        .footer-text { font-size: 10px; color: #bbb; margin-top: 25px; text-transform: uppercase; }
+
+        /* Alt Renkli Şerit */
+        .card::after { 
+            content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 6px; 
+            background: linear-gradient(to right, #0a3d62 33.3%, #ffffff 33.3%, #ffffff 66.6%, #b33939 66.6%); 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="top-banner">
+            <div class="logo-wrapper">
+                <img src="metaders.png" alt="MetaDers Logo">
+            </div>
+        </div>
+        
+        <div class="content">
+            <span class="creator">YAYIM YÖNETMENİ</span>
+            <h1>HOŞ GELDİNİZ</h1>
+            <span class="subtitle">LGS TÜRKİYE GENELİ DENEME SINAVI</span>
+            
+            <p class="vurgu-p">
+                LGS 2026 Öncesi <span style="color: #b33939; font-weight: 800;">"GERÇEK SON PROVA"</span>.<br>
+                MEB Müfredat Havuzu en ince detayına kadar incelenerek, 20 yıllık uzman tecrübe ile hazırlandı.
+            </p>
+            
+            <a href="https://heyzine.com/flip-book/3dc72ff857.html" target="_blank" class="btn btn-exam">DENEME SINAVINI İNCELE</a>
+            <a href="sss.html" class="btn btn-outline">SIKÇA SORULAN SORULAR</a>
+            <a href="tel:+905428234097" class="btn btn-outline">KURUMSAL İŞ BİRLİĞİ HATTI</a>
+            
+            <div class="footer-text">METADERS YAYINLARI © 2026</div>
+        </div>
+    </div>
+
+</body>
+</html>

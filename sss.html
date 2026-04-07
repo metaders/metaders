@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaDers Yayınları | SSS</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; display: flex; justify-content: center; }
+        .container { width: 100%; max-width: 600px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 20px; }
+        .logo { width: 220px; height: auto; margin-bottom: 15px; }
+        h1 { font-size: 20px; text-transform: uppercase; letter-spacing: 2px; color: #333; margin: 0; }
+        
+        .soru-blok { border-left: 6px solid #0a3d62; padding: 15px 20px; margin-bottom: 25px; background-color: #fafafa; border-radius: 0 8px 8px 0; }
+        .soru { font-weight: bold; font-size: 17px; color: #000; margin-bottom: 8px; min-height: 20px; }
+        
+        /* Renazzo stilinde farklı renkli cevaplar */
+        .cevap { font-size: 15px; line-height: 1.6; min-height: 20px; font-weight: 600; }
+        .c1 { color: #b33939; } .c2 { color: #0D47A1; } .c3 { color: #1B5E20; }
+        .c4 { color: #E65100; } .c5 { color: #4A148C; } .c6 { color: #880E4F; } 
+        .c7 { color: #006064; } .c8 { color: #b33939; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <img src="metaders.png" alt="MetaDers" class="logo" onerror="this.src='https://via.placeholder.com/220x80?text=METADERS'">
+        <h1>Sıkça Sorulan Sorular</h1>
+    </div>
+    <div id="sss-alan"></div>
+</div>
+
+<script>
+    const sssVerisi = [
+        { 
+            q: "1- MetaDers Yayınları hakkında bilgi verir misiniz?", 
+            a: "MetaDers; ismi yeni, kökleri ise Türkiye’nin eğitim hafızasına dayanan bir başarı oluşumudur. 20 yılı aşkın süredir mutfakta olan, sınav dilini ve MEB müfredat havuzunu en ince detayına kadar analiz eden uzman kadromuzla; artık kendi vizyonumuzu ve tecrübemizi MetaDers markasıyla sahaya sürüyoruz. Biz sadece soru üretmiyoruz, sınavın nabzını tutuyoruz.", 
+            cl: "c1" 
+        },
+        { q: "2- Denemenizin kapsamı ve hedefi nedir?", a: "LGS yolundaki 8. sınıf öğrencilerinin sınav salonuna girdiklerinde karşılaşmaları muhtemel senaryoların profesyonel bir simülasyonudur.", cl: "c2" },
+        { q: "3- Sınavın uygulama takvimi nedir?", a: "Mayıs ayının ikinci haftasından itibaren gerçek LGS tarihine kadar kurumunuzun takvimine uygun herhangi bir tarihte uygulanabilir.", cl: "c3" },
+        { q: "4- Soruların zorluk seviyesi nedir?", a: "Amacımız öğrenciyi yıldırmak değil, gerçek sınav seviyesiyle tanıştırmaktır. Denememiz LGS ile tam paralel seviyede hazırlanmış bir Gerçek Prova’dır.", cl: "c4" },
+        { q: "5- Ölçme ve değerlendirme süreci nasıl işliyor?", a: "Optikleri isterseniz kendiniz okutun, isterseniz bize gönderin; uzman ekibimizce analizli karneler sistem üzerinden size ulaştırılır.", cl: "c5" },
+        { q: "6- Hazırlayan ekibin tecrübesi nedir?", a: "Ekibimiz 20 yılı aşkın süredir sınav dilini ve MEB şifrelerini en iyi bilen uzman yazarlardan oluşmaktadır.", cl: "c6" },
+        { q: "7- Neden MetaDers Denemesini tercih etmeliyim?", a: "Çünkü MetaDers bir Eğitim Ar-Ge Merkezi gibi çalışır. Sınavın nabzını tutan nokta atışı sorular üretir.", cl: "c7" },
+        { q: "8- Denemeninin kurumumuza maliyeti nedir?", a: "Kaliteli eğitimi ulaşılabilir kılıyoruz. Okuma ve analiz dahil, deneme adet ücretimiz KDV dahil sadece 20 TL’dir.", cl: "c8" }
+    ];
+
+    const alan = document.getElementById('sss-alan');
+
+    async function daktilo(hedef, metin, hiz) {
+        for (let i = 0; i < metin.length; i++) {
+            hedef.innerHTML += metin.charAt(i);
+            await new Promise(res => setTimeout(res, hiz));
+        }
+    }
+
+    async function sssBaslat() {
+        for (let veri of sssVerisi) {
+            const blok = document.createElement('div');
+            blok.className = 'soru-blok';
+            
+            const sDiv = document.createElement('div');
+            sDiv.className = 'soru';
+            
+            const cDiv = document.createElement('div');
+            cDiv.className = 'cevap ' + veri.cl;
+            
+            blok.appendChild(sDiv);
+            blok.appendChild(cDiv);
+            alan.appendChild(blok);
+
+            await daktilo(sDiv, veri.q, 25);
+            await daktilo(cDiv, veri.a, 15);
+            await new Promise(res => setTimeout(res, 500));
+        }
+    }
+
+    window.onload = sssBaslat;
+</script>
+</body>
+</html>
